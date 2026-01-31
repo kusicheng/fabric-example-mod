@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:coal_block"
+    }
+  },
+  "result": {
+    "id": "modid:compressed_coal",
+    "count": 1
+  }
+}

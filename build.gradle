@@ -1,4 +1,5 @@
 plugins {
+	id 'java'
 	id 'fabric-loom' version '1.7-SNAPSHOT'
 	id 'maven-publish'
 }
@@ -42,6 +43,7 @@ dependencies {
 }
 
 processResources {
+	dependsOn("generateCompressedResources")
 	inputs.property "version", project.version
 
 	filesMatching("fabric.mod.json") {
@@ -49,8 +51,22 @@ processResources {
 	}
 }
 
+tasks.register("generateCompressedResources", JavaExec) {
+	group = "build"
+	description = "Generate compressed item models and recipes if missing."
+	dependsOn("compileJava")
+	classpath = files(sourceSets.main.java.destinationDirectory)
+	mainClass = "com.example.datagen.CompressedResourceGenerator"
+	args layout.projectDirectory.dir("src/main/resources").asFile.absolutePath
+}
+
+tasks.named("runClient") {
+	dependsOn("processResources")
+}
+
 tasks.withType(JavaCompile).configureEach {
 	it.options.release = 21
+	options.encoding = "UTF-8"
 }
 
 java {

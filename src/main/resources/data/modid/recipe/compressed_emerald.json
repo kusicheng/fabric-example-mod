@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:emerald_block"
+    }
+  },
+  "result": {
+    "id": "modid:compressed_emerald",
+    "count": 1
+  }
+}

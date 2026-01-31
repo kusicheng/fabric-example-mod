@@ -32,6 +32,10 @@ bin/
 
 run/
 
+# generated resources
+src/main/resources/assets/modid/models/item/
+src/main/resources/data/modid/recipes/
+
 # java
 
 hs_err_*.log
